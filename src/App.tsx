@@ -13,7 +13,7 @@ function App() {
         base: `"nav" "main"`,
       }}
       templateColumns={{
-        lg: "100px 1fr",
+        lg: "120px 1fr",
         base: "1fr",
       }}
     >
@@ -23,7 +23,7 @@ function App() {
 
       <GridItem
         area="aside"
-        inlineSize="100px"
+        inlineSize="120px"
         padding="10px"
         display={{ base: "none", lg: "block" }}
       >
