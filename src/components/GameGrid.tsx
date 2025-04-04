@@ -6,8 +6,14 @@ import SkeletonCard from "./SkeletonCard";
 import useData from "../hooks/useData";
 
 import useGames from "../hooks/useGames";
-function GameGrid() {
-  const { data, error, isLoading } = useGames();
+import { Genre } from "../hooks/useGenre";
+
+interface Props {
+  selectedGenre: Genre | null;
+}
+
+function GameGrid({ selectedGenre }: Props) {
+  const { data, error, isLoading } = useGames(selectedGenre);
   const skeletons = [1, 2, 3, 4, 5, 6];
   return (
     <>
