@@ -5,19 +5,23 @@ import { ClientOnly, IconButton, Skeleton } from "@chakra-ui/react";
 import { useColorMode } from "./ui/color-mode";
 import { LuMoon, LuSun } from "react-icons/lu";
 import api from "../services/api-client";
+import SearchInput from "./SearchInput";
 
 function NavBar() {
   const { toggleColorMode, colorMode } = useColorMode();
 
   return (
-    <HStack justify="space-between" padding="10px">
+    <HStack  padding="10px">
       <Image src={logo} boxSize="60px"></Image>
 
+      <SearchInput></SearchInput>
       <ClientOnly fallback={<Skeleton boxSize="8"></Skeleton>}>
         {/* during ssr if fallbacks to skeleton and during and shows colormode only when 
         the code is running on client side  */}
         <HStack>
-          <Text>{colorMode === "light" ? "Light Mode" : "Dark Mode"}</Text>
+          <Text whiteSpace={"nowrap"}>
+            {colorMode === "light" ? "Light Mode" : "Dark Mode"}
+          </Text>
 
           <IconButton onClick={toggleColorMode} size="sm">
             {colorMode === "light" ? <LuSun /> : <LuMoon />}
