@@ -6,15 +6,18 @@ import { useColorMode } from "./ui/color-mode";
 import { LuMoon, LuSun } from "react-icons/lu";
 import api from "../services/api-client";
 import SearchInput from "./SearchInput";
+interface Props {
+  onSearch: (searchText: string) => void;
+}
 
-function NavBar() {
+function NavBar({ onSearch }: Props) {
   const { toggleColorMode, colorMode } = useColorMode();
 
   return (
-    <HStack  padding="10px">
+    <HStack padding="10px">
       <Image src={logo} boxSize="60px"></Image>
 
-      <SearchInput></SearchInput>
+      <SearchInput onSearch={onSearch}></SearchInput>
       <ClientOnly fallback={<Skeleton boxSize="8"></Skeleton>}>
         {/* during ssr if fallbacks to skeleton and during and shows colormode only when 
         the code is running on client side  */}

@@ -8,12 +8,14 @@ import { Genre } from "./hooks/useGenre";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
+import { BsSearchHeart } from "react-icons/bs";
 
 export interface GameQuery {
   genre: Genre | null;
   open: Boolean;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -36,7 +38,9 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        <NavBar />
+        <NavBar
+          onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })}
+        />
       </GridItem>
 
       <GridItem
