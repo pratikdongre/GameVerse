@@ -1,27 +1,17 @@
 import { useState } from "react";
-import styles from "./PlatformSelector.module.css";
+import styles from "./SortSelector.module.css";
 import { Box } from "@chakra-ui/react";
 import { ColorMode, useColorMode } from "./ui/color-mode";
 import usePlatform from "../hooks/usePlatforms";
 import { Platform } from "../hooks/useGames";
 
 interface Props {
-  isOpenPlatform: boolean;
+  isOpenSort: boolean;
   onToggle: () => void;
-  onSelectPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
 }
 
-function PlatformSelector({
-  isOpenPlatform,
-  onToggle,
-  onSelectPlatform,
-  selectedPlatform,
-}: Props) {
-  const { data, error } = usePlatform();
+function SortSelector({ isOpenSort, onToggle }: Props) {
   const { colorMode } = useColorMode();
-
-  if (error) return null;
 
   const buttonStyle = {
     backgroundColor: colorMode === "light" ? "#e4e4e7" : "rgb(39, 39, 42",
@@ -40,35 +30,25 @@ function PlatformSelector({
             onClick={onToggle}
             style={buttonStyle}
           >
-            {selectedPlatform ? (
-              <span>{selectedPlatform.name}</span>
-            ) : (
-              <span>Platforms</span>
-            )}
+            <span>Order By : Relevance</span>
             <i
               className={`${styles.arrow} ${styles.down}`}
               style={borderStyle}
             ></i>
           </button>
 
-          {isOpenPlatform && (
+          {isOpenSort && (
             <ul
               className={styles["dropdown-menu"]}
               style={buttonStyle}
               onClick={onToggle}
             >
-              {/* <li>PC</li>
-            <li>PlayStation</li>
-            <li>Xbox</li> */}
-              {data.map((platform) => (
-                <li
-                  className={styles.limenu}
-                  key={platform.id}
-                  onClick={() => onSelectPlatform(platform)}
-                >
-                  {platform.name}
-                </li>
-              ))}
+              <li>Relevance</li>
+              <li>Date Added</li>
+              <li>Name</li>
+              <li>Release Data</li>
+              <li>Popularity</li>
+              <li>Average Rating</li>
             </ul>
           )}
         </div>
@@ -77,4 +57,4 @@ function PlatformSelector({
   );
 }
 
-export default PlatformSelector;
+export default SortSelector;

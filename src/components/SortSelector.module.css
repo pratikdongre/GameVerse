@@ -1,0 +1,90 @@
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.dropdown {
+  margin-left: 150px;
+
+  z-index: 1;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+  margin-top: 0px;
+}
+
+.fix {
+  position: absolute;
+  z-index: 1;
+}
+
+.fullButton {
+  /* background-color: rgb(39, 39, 42); */
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  border-radius: 4px;
+  border: 0.5px solid gray;
+}
+
+.arrow {
+  border: solid rgb(255, 255, 255);
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: 6px;
+  margin-bottom: 2px;
+  /* position: absolute; */
+  /* top: 5px; */
+
+  /* background-color: rgb(39, 39, 42); */
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.dropdown-menu {
+  margin-top: 10px;
+  /* background-color: rgb(39, 39, 42); */
+  border-radius: 4px;
+  padding: 6px 12px;
+  border: 0.5px solid gray;
+  cursor: pointer;
+}
+/* 
+  .dropdown:hover {
+    background-color: rgb(18, 18, 20);
+  } */
+
+.limenu:hover {
+  background-color: rgb(18, 18, 20);
+}
+
+.dropdown-menu li:hover {
+  background-color: rgb(18, 18, 20);
+}
+
+@media (max-width: 320px) {
+  .fullButton {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .dropdownMenu {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .arrow {
+    margin-left: 4px;
+    padding: 2px;
+  }
+}

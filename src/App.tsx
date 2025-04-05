@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "./App.css";
-import { Grid, GridItem, Show } from "@chakra-ui/react";
+import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useGenre";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
+import SortSelector from "./components/SortSelector";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -16,7 +17,9 @@ export interface GameQuery {
 
 function App() {
   // const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpenPlatform, setIsOpenPlatform] = useState(false);
+  const [isOpenSort, setIsOpenSort] = useState(false);
+
   // const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
@@ -53,13 +56,18 @@ function App() {
           onSelectPlatform={(platform) => {
             setGameQuery({ ...gameQuery, platform });
           }}
-          isOpen={isOpen}
-          onToggle={() => setIsOpen(!isOpen)}
+          isOpenPlatform={isOpenPlatform}
+          onToggle={() => setIsOpenPlatform(!isOpenPlatform)}
         ></PlatformSelector>
         {/* <GameGrid
           selectedPlatform={gameQuery.platform}
           selectedGenre={gameQuery.genre}
         ></GameGrid> */}
+        <SortSelector
+          isOpenSort={isOpenSort}
+          onToggle={() => setIsOpenSort(!isOpenSort)}
+        />
+
         <GameGrid gameQuery={gameQuery}></GameGrid>
       </GridItem>
     </Grid>
