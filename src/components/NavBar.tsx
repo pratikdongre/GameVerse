@@ -14,6 +14,8 @@ function NavBar() {
       <Image src={logo} boxSize="60px"></Image>
 
       <ClientOnly fallback={<Skeleton boxSize="8"></Skeleton>}>
+        {/* during ssr if fallbacks to skeleton and during and shows colormode only when 
+        the code is running on client side  */}
         <HStack>
           <Text>{colorMode === "light" ? "Light Mode" : "Dark Mode"}</Text>
 
@@ -22,8 +24,6 @@ function NavBar() {
           </IconButton>
         </HStack>
       </ClientOnly>
-
-     
     </HStack>
   );
 }

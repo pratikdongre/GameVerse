@@ -20,7 +20,7 @@ function useData<T>(
     () => {
       const controller = new AbortController();
       const signal = controller.signal;
-
+      setIsLoading(true);
       const fetchData = async () => {
         try {
           const response = await api.get<FetchResponse<T>>(endpoint, {
