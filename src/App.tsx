@@ -13,6 +13,7 @@ export interface GameQuery {
   genre: Genre | null;
   open: Boolean;
   platform: Platform | null;
+  sortOrder: string;
 }
 
 function App() {
@@ -64,6 +65,10 @@ function App() {
           selectedGenre={gameQuery.genre}
         ></GameGrid> */}
         <SortSelector
+          sortOrder={gameQuery.sortOrder}
+          onSelectSortOrder={(sortOrder) =>
+            setGameQuery({ ...gameQuery, sortOrder })
+          }
           isOpenSort={isOpenSort}
           onToggle={() => setIsOpenSort(!isOpenSort)}
         />
