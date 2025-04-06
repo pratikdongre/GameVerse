@@ -2,7 +2,7 @@ import { HStack, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import logo from "../assets/logo.webp";
 import { ClientOnly, IconButton, Skeleton } from "@chakra-ui/react";
-import { useColorMode } from "./ui/color-mode";
+import { useColorMode, useColorModeValue } from "./ui/color-mode";
 import { LuMoon, LuSun } from "react-icons/lu";
 import api from "../services/api-client";
 import SearchInput from "./SearchInput";
