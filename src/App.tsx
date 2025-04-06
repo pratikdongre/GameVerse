@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
@@ -9,6 +9,7 @@ import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 import { BsSearchHeart } from "react-icons/bs";
+import GamesHeading from "./components/GamesHeading";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -55,28 +56,31 @@ function App() {
         ></GenreList>
       </GridItem>
 
-      <GridItem area="main">
-        <PlatformSelector
-          selectedPlatform={gameQuery.platform}
-          onSelectPlatform={(platform) => {
-            setGameQuery({ ...gameQuery, platform });
-          }}
-          isOpenPlatform={isOpenPlatform}
-          onToggle={() => setIsOpenPlatform(!isOpenPlatform)}
-        ></PlatformSelector>
-        {/* <GameGrid
+      <GridItem area="main" marginLeft="40px">
+        <GamesHeading gameQuery={gameQuery} />
+        <div className="selectors">
+          <PlatformSelector
+            selectedPlatform={gameQuery.platform}
+            onSelectPlatform={(platform) => {
+              setGameQuery({ ...gameQuery, platform });
+            }}
+            isOpenPlatform={isOpenPlatform}
+            onToggle={() => setIsOpenPlatform(!isOpenPlatform)}
+          ></PlatformSelector>
+          {/* <GameGrid
           selectedPlatform={gameQuery.platform}
           selectedGenre={gameQuery.genre}
         ></GameGrid> */}
-        <SortSelector
-          sortOrder={gameQuery.sortOrder}
-          onSelectSortOrder={(sortOrder) =>
-            setGameQuery({ ...gameQuery, sortOrder })
-          }
-          isOpenSort={isOpenSort}
-          onToggle={() => setIsOpenSort(!isOpenSort)}
-        />
 
+          <SortSelector
+            sortOrder={gameQuery.sortOrder}
+            onSelectSortOrder={(sortOrder) =>
+              setGameQuery({ ...gameQuery, sortOrder })
+            }
+            isOpenSort={isOpenSort}
+            onToggle={() => setIsOpenSort(!isOpenSort)}
+          />
+        </div>
         <GameGrid gameQuery={gameQuery}></GameGrid>
       </GridItem>
     </Grid>

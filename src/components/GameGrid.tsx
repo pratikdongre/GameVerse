@@ -34,7 +34,12 @@ function GameGrid({ gameQuery }: Props) {
         ))}
       </ul> */}
 
-      <SimpleGrid columns={{ lg: 3, sm: 1, md: 2 }} gap="40px" padding="40px">
+      <SimpleGrid
+        columns={{ lg: 3, sm: 1, md: 2 }}
+        gap="40px"
+        padding="40px"
+        paddingLeft={0}
+      >
         {isLoading &&
           skeletons.map((skeleton) => (
             <SkeletonCard key={skeleton}></SkeletonCard>

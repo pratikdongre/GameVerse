@@ -1,10 +1,10 @@
-.row {
+/* .row {
   display: flex;
   flex-direction: row;
-}
+} */
 
 .dropdown {
-  margin-left: 150px;
+  /* margin-left: 70px; */
 
   z-index: 1;
   font-size: 14px;
@@ -12,10 +12,7 @@
   flex-direction: column;
   /* gap: 10px; */
   margin-top: 0px;
-}
-
-.fix {
-  position: absolute;
+  position: relative;
   z-index: 1;
 }
 
@@ -52,6 +49,7 @@
 }
 
 .dropdown-menu {
+  position: absolute;
   margin-top: 10px;
   /* background-color: rgb(39, 39, 42); */
   border-radius: 4px;
