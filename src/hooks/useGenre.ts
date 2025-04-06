@@ -1,4 +1,5 @@
 import useData from "./useData";
+import genre from "../data/genre";
 export interface Genre {
   id: number;
   name: string;
@@ -6,7 +7,8 @@ export interface Genre {
 }
 
 function useGenre() {
-  return useData<Genre>("/genres");
+  // return useData<Genre>("/genres");
+  return { data: genre, isLoading: false, error: null };
 }
 
 export default useGenre;
