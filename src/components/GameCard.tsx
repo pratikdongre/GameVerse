@@ -16,7 +16,7 @@ const GameCard = ({ game }: Props) => {
       {/* // <Card.Root> */}
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
-        <Heading fontSize="2xl">{game.name}</Heading>
+        <Heading fontSize="2xl">{game.name} </Heading>
 
         {/* {game.parent_platforms.map(({ platform }) => (
           <Text>{platform.name}</Text>

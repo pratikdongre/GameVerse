@@ -35,8 +35,8 @@ function GameGrid({ gameQuery }: Props) {
       </ul> */}
 
       <SimpleGrid
-        columns={{ lg: 3, sm: 1, md: 2 }}
-        gap="40px"
+        columns={{ lg: 3, sm: 1, md: 2, "2xl": 4 }}
+        gap="30px"
         padding="40px"
         paddingLeft={0}
       >
