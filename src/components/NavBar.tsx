@@ -2,8 +2,9 @@ import { HStack, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import logo from "../assets/logo.webp";
 import { ClientOnly, IconButton, Skeleton } from "@chakra-ui/react";
-import { useColorMode, useColorModeValue } from "./ui/color-mode";
-import { LuMoon, LuSun } from "react-icons/lu";
+import { useColorMode } from "./ui/color-mode";
+// import { FaMoon, FaSun } from "react-icons/fa";
+import { Sun, Moon } from "lucide-react";
 import api from "../services/api-client";
 import SearchInput from "./SearchInput";
 interface Props {
@@ -12,7 +13,6 @@ interface Props {
 
 function NavBar({ onSearch }: Props) {
   const { toggleColorMode, colorMode } = useColorMode();
-
   return (
     <HStack padding="10px">
       <Image src={logo} boxSize="60px"></Image>
@@ -27,7 +27,7 @@ function NavBar({ onSearch }: Props) {
           </Text>
 
           <IconButton onClick={toggleColorMode} size="sm">
-            {colorMode === "light" ? <LuSun /> : <LuMoon />}
+            {colorMode === "light" ? <Sun /> : <Moon />}
           </IconButton>
         </HStack>
       </ClientOnly>

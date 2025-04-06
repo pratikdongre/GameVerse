@@ -1,6 +1,7 @@
 import { Input, InputGroup } from "@chakra-ui/react";
 import React, { useRef } from "react";
-import { BsSearch } from "react-icons/bs";
+// import { BsSearch } from "react-icons/bs";
+import { Search } from "lucide-react";
 
 interface Props {
   onSearch: (searchText: string) => void;
@@ -23,7 +24,7 @@ function SearchInput({ onSearch }: Props) {
         }
       }}
     >
-      <InputGroup startElement={<BsSearch />}>
+      <InputGroup startElement={(<Search />) as React.ReactElement}>
         <Input
           ref={ref}
           borderRadius={20}
